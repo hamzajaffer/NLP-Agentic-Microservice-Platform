@@ -1,0 +1,105 @@
+{
+  "info": {
+    "name": "TrendStory API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Postman collection for testing the FastAPI TrendStory backend."
+  },
+  "item": [
+    {
+      "name": "GET /trends",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/trends",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "trends"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST /generate_story (valid)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"topic\": \"Floods in Sindh\",\n    \"tone\": \"tragic\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/generate_story",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "generate_story"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST /generate_story (missing topic)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"topic\": \"\",\n    \"tone\": \"tragic\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/generate_story",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "generate_story"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST /generate_story (invalid tone)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"topic\": \"Power outage in Lahore\",\n    \"tone\": \"funny\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/generate_story",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "generate_story"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": []
+}
